@@ -30,9 +30,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   late AnimationController controller;
-  late AnimationController controller1;
-  late AnimationController controller2;
-  late AnimationController controller3;
 
   @override
   void initState() {
@@ -50,35 +47,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         controller.forward();
       }
     });
-
-    controller1 =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
-    controller1.addListener(() async {
-      setState(() {});
-      if (controller1.isCompleted) {
-        await Future.delayed(Duration(seconds: 1));
-        controller1.reverse();
-      } else if (controller1.isDismissed) {
-        await Future.delayed(Duration(seconds: 1));
-        controller1.forward();
-      }
-    });
-
-    controller2 =
-        AnimationController(vsync: this, duration: const Duration(seconds: 2));
-    controller2.addListener(() async {
-      setState(() {});
-      if (controller2.isCompleted) {
-        await Future.delayed(Duration(seconds: 1));
-        controller2.reverse();
-      } else if (controller2.isDismissed) {
-        await Future.delayed(Duration(seconds: 1));
-        controller2.forward();
-      }
-    });
-
-    Future.delayed(Duration(seconds: 3)).then((value) => controller.forward());
-    controller1.forward();
+    controller.forward();
   }
 
   @override
@@ -134,7 +103,6 @@ class _SwitchCardsEventState extends State<SwitchCardsEvent> {
       margin: EdgeInsets.all(50),
       alignment: Alignment.center,
       child: Stack(
-        clipBehavior: Clip.none,
         key: stackGlobalKey,
         children: [
           for (var i in listImage)
@@ -169,9 +137,7 @@ class _SwitchCardsEventState extends State<SwitchCardsEvent> {
                       if ((position.dy - positionDrag.dy).abs() > 100) {
                         print("spps");
                       } else {
-                        if ((position.dy - positionDrag.dy).abs() / 5 >=
-                            distance)
-                          distance = (position.dy - positionDrag.dy).abs() / 5;
+                        distance = (position.dy - positionDrag.dy).abs() / 5;
                       }
                     },
                     onDragEnd: (listener) {
@@ -182,6 +148,8 @@ class _SwitchCardsEventState extends State<SwitchCardsEvent> {
                           listImage.insert(0, i);
                           listImage.removeLast();
                         });
+                      } else {
+                        distance = 0;
                       }
                     },
                     childWhenDragging: Container(),
