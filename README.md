@@ -1,16 +1,4 @@
-# test_animation
 
-A new Flutter project.
 
-## Getting Started
+https://github.com/giahuy2610/VinIDDraggableSlider/assets/87313146/60fa1c62-cb71-43f1-83a5-0f87d65ff12e
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
